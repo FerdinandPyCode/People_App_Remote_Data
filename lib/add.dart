@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:people/fetch_data.dart';
+import 'package:people/model.dart';
 
 
 class AddScreen extends StatefulWidget {
@@ -128,29 +130,6 @@ class _AddScreenState extends State<AddScreen> {
 
                 const SizedBox(height: 10.0,),
 
-                /*TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your mail address';
-                    }
-                    return null;
-                  },
-                 ///// keyboardType: ,
-                  decoration: const InputDecoration(
-                    
-                    hintText: 'Enter your email',
-                    labelText: "Email",
-                    border: OutlineInputBorder(),
-                  ),
-                  onChanged: (value) {
-                    setState(() {
-                      mail = value;
-                    });
-                  },
-                ),
-
-                const SizedBox(height: 10.0,),*/
-
                 DropdownButton(
                 
                   // Initial Value
@@ -197,79 +176,14 @@ class _AddScreenState extends State<AddScreen> {
                   },
                 ),
 
-              /*const SizedBox(height: 10.0,),
-
-              OutlinedButton(
-                
-                style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
-                  side:const BorderSide(width: 1, color: Colors.green),
-                ),
-                onPressed:(() => montrerPicker()),
-                  child:Text(
-                  (date=="") ? "Birthday" : date,
-                  style:const TextStyle(
-                      fontSize: 18.0
-                  ),
-                ),
-                ),
-                
-                Center(
-                  child: Text(
-                    (msg=="") ? "" : "Please enter your birthday !",
-                    textAlign: TextAlign.center,
-                    style:const TextStyle(
-                      color: Colors.red,
-                      fontSize: 13.0
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 10.0,),*/
-
-              /*OutlinedButton(
-                
-                style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
-                  side:const BorderSide(width: 1, color: Colors.green),
-                ),
-                onPressed:(() => pickImageFromGallery()),
-                  child:Text(
-                  (msg2=="") ? "Your picture" : msg2,
-                  style:const TextStyle(
-                      fontSize: 18.0
-                  ),
-                ),
-                ),*/
-                
-
                 const SizedBox(height: 20.0,),
 
                 ElevatedButton(
-
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      
-                       
-                          /*await DatabaseHandler()
-                            .insertpeople(Human(
-                            firstname: firstname,
-                            lastname: lastname,
-                            //id: Random().nextInt(50),
-                            //birthday: birthday,
-                            adress: adress,
-                            phone: phone,
-                            //mail: mail,
-                            gender: gender,
-                            picture: picture,
-                            citation: citation
-                            ))
-                            .whenComplete(() => Navigator.pop(context)
-                        );*/
+                      print("+++++++++++++++++++++++++++++++++");
+                       print(FetchData().createHuman(Human(firstname: firstname, lastname: lastname, adress: adress, phone: phone, gender: gender, picture: picture, citation: citation)).toString());
+                       Navigator.pop(context);
                       }else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content:Text('Processing Data')),
@@ -291,34 +205,4 @@ class _AddScreenState extends State<AddScreen> {
       ),
     );
   }
-
-    /*Future montrerPicker() async {
-    DateTime? choix = await showDatePicker(
-      context: context,
-      initialDate: DateTime(2010),
-      firstDate: DateTime(1980),
-      lastDate: DateTime.now(),
-      initialDatePickerMode: DatePickerMode.year,
-    );
-
-    if (choix != null) {
-        setState(() {
-          date=choix.toString().substring(0,11);
-          birthday = Converter.dateToInt(choix.toString());
-        });
-    }
-  }
-
-  Future<void> pickImageFromGallery() async{
-
-    final ImagePicker _picker = ImagePicker();
-
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    if(image!=null){
-      setState(() {
-        picture = image.path;
-        msg2="imagefromuser.png";
-      });
-    }
-  }*/
 }

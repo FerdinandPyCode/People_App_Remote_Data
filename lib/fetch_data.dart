@@ -26,4 +26,14 @@ class FetchData {
       throw Exception('Failed to load album');
     }
   }
+
+  Future<http.Response> createHuman(Human human) {
+    return http.post(
+      Uri.parse('https://ifri.raycash.net/adduser'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(human.toMap()),
+    );
+  }
 }
