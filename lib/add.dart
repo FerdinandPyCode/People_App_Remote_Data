@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dbhelper.dart';
-import 'model.dart';
 
 
 class AddScreen extends StatefulWidget {
@@ -257,7 +255,7 @@ class _AddScreenState extends State<AddScreen> {
                     if (_formKey.currentState!.validate()) {
                       
                        
-                          await DatabaseHandler()
+                          /*await DatabaseHandler()
                             .insertpeople(Human(
                             firstname: firstname,
                             lastname: lastname,
@@ -271,10 +269,10 @@ class _AddScreenState extends State<AddScreen> {
                             citation: citation
                             ))
                             .whenComplete(() => Navigator.pop(context)
-                        );
+                        );*/
                       }else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content:Text('Processing Data')),
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content:Text('Processing Data')),
                       );
                       }
                     },

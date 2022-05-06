@@ -4,11 +4,10 @@ class Human {
   final String lastname;
   final String adress;
   final String phone;
-  //final String mail;
   final String gender;
   final String picture;
   final String citation;
-  //final int birthday;
+
 
   Human({
     this.id="",

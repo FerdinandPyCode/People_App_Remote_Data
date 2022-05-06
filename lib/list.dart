@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:people/fetch_data.dart';
 import 'add.dart';
-import 'dbhelper.dart';
 import 'model.dart';
 import 'detail.dart';
 import 'modifier.dart';

@@ -11,11 +11,7 @@ class FetchData {
     //final response = await http.get(Uri.parse(urlString));
 
     if (response.statusCode == 200) {
-      // If the server did return a 200 OK response,
-      // then parse the JSON.
-      //print("------------La c'est dans un instant---------------");
-
-      //print("------------> ${jsonDecode(response.body)["message"]}");
+      
 
       var total = jsonDecode(response.body)["message"] as List;
 
@@ -25,9 +21,8 @@ class FetchData {
 
       return mylist;
     } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      print("Une erreur est subvénu ohhhhhhhhhhhh");
+      
+      
       throw Exception('Failed to load album');
     }
   }
